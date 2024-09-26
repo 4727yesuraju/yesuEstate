@@ -9,7 +9,6 @@ import path from 'path';
 import job from './cron/cron.js';
 dotenv.config();
 
-job.start();
 mongoose
   .connect(process.env.MONGO)
   .then(() => {
@@ -19,6 +18,7 @@ mongoose
     console.log(err);
   });
 
+  job.start();
   const __dirname = path.resolve();
 
 const app = express();
